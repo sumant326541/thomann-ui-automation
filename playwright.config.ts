@@ -24,7 +24,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [
-    ['html', { outputFolder: 'reports/html' }],   // HTML report
+    ['html'],   // HTML report
   ],
   timeout: 120000, // 60 seconds
   outputDir: 'reports/test-results/',
@@ -36,7 +36,7 @@ export default defineConfig({
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'retain-on-failure',
     screenshot: 'only-on-failure',
-    video: 'on',
+    video: 'retain-on-failure',
   },
 
   /* Configure projects for major browsers */
