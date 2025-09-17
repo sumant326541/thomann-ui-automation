@@ -1,0 +1,14 @@
+{
+  "name": "thomann-ui-automation",
+  "version": "1.0.0",
+  "description": "Thomann UI automation with playwright and typescript",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.55.0",
+    "@types/node": "^24.5.0"
+  }
+}

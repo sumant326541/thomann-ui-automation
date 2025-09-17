@@ -1,0 +1,346 @@
+<testsuites id="" name="" tests="3" failures="3" skipped="0" errors="0" time="31.811681">
+<testsuite name="add-cable-to-basket.spec.ts" timestamp="2025-09-16T10:58:33.675Z" hostname="chromium" tests="1" failures="1" skipped="0" time="30.165" errors="0">
+<testcase name="add product to basket › should add product (cable) to the shopping basket." classname="add-cable-to-basket.spec.ts" time="30.165">
+<failure message="add-cable-to-basket.spec.ts:31:7 should add product (cable) to the shopping basket." type="FAILURE">
+<![CDATA[  [chromium] › add-cable-to-basket.spec.ts:31:7 › add product to basket › should add product (cable) to the shopping basket. 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for locator('.cg-plugButton__subheadline').filter({ hasText: 'cable beginning' })
+        - locator resolved to <span class="cg-plugButton__subheadline">cable beginning</span>
+      - attempting click action
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <div class="theme-fx spicy-consent-wrapper js-spicy-ask">…</div> intercepts pointer events
+        - retrying click action
+        - waiting 20ms
+        - waiting for element to be visible, enabled and stable
+        - element is visible, enabled and stable
+        - scrolling into view if needed
+        - done scrolling
+        - <div class="spicy-consent-bar">…</div> from <div class="theme-fx spicy-consent-wrapper js-spicy-ask">…</div> subtree intercepts pointer events
+      2 × retrying click action
+          - waiting 100ms
+          - waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <div class="theme-fx spicy-consent-wrapper js-spicy-ask">…</div> intercepts pointer events
+      13 × retrying click action
+           - waiting 500ms
+           - waiting for element to be visible, enabled and stable
+           - element is visible, enabled and stable
+           - scrolling into view if needed
+           - done scrolling
+           - <div class="theme-fx spicy-consent-wrapper js-spicy-ask">…</div> intercepts pointer events
+         - retrying click action
+           - waiting 500ms
+           - waiting for element to be visible, enabled and stable
+           - element is visible, enabled and stable
+           - scrolling into view if needed
+           - done scrolling
+           - <div class="spicy-consent-bar">…</div> from <div class="theme-fx spicy-consent-wrapper js-spicy-ask">…</div> subtree intercepts pointer events
+         - retrying click action
+           - waiting 500ms
+           - waiting for element to be visible, enabled and stable
+           - element is visible, enabled and stable
+           - scrolling into view if needed
+           - done scrolling
+           - <div class="theme-fx spicy-consent-wrapper js-spicy-ask">…</div> intercepts pointer events
+         - retrying click action
+           - waiting 500ms
+           - waiting for element to be visible, enabled and stable
+           - element is visible, enabled and stable
+           - scrolling into view if needed
+           - done scrolling
+           - <div class="theme-fx spicy-consent-wrapper js-spicy-ask">…</div> intercepts pointer events
+      - retrying click action
+        - waiting 500ms
+        - waiting for element to be visible, enabled and stable
+        - element is visible, enabled and stable
+        - scrolling into view if needed
+        - done scrolling
+        - <div class="theme-fx spicy-consent-wrapper js-spicy-ask">…</div> intercepts pointer events
+      - retrying click action
+        - waiting 500ms
+        - waiting for element to be visible, enabled and stable
+        - element is visible, enabled and stable
+        - scrolling into view if needed
+        - done scrolling
+        - <div class="spicy-consent-bar">…</div> from <div class="theme-fx spicy-consent-wrapper js-spicy-ask">…</div> subtree intercepts pointer events
+      - retrying click action
+        - waiting 500ms
+        - waiting for element to be visible, enabled and stable
+        - element is visible, enabled and stable
+        - scrolling into view if needed
+        - done scrolling
+        - <div class="theme-fx spicy-consent-wrapper js-spicy-ask">…</div> intercepts pointer events
+      - retrying click action
+        - waiting 500ms
+
+
+       at ../pages/CableGuyPage.ts:24
+
+      22 |
+      23 |   async selectCableBeginning() {
+    > 24 |     await this.cableBeginingButton.click();
+         |                                    ^
+      25 |   }
+      26 |
+      27 |   async selectCableEnd() {
+        at CableGuyPage.selectCableBeginning (/Users/sumantkumar/projectworkspace/thomann-ui-automation/pages/CableGuyPage.ts:24:36)
+        at CableGuyPage.selectRandomCableFromBeginningSection (/Users/sumantkumar/projectworkspace/thomann-ui-automation/pages/CableGuyPage.ts:40:16)
+        at /Users/sumantkumar/projectworkspace/thomann-ui-automation/tests/add-cable-to-basket.spec.ts:33:24
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../reports/test-results/add-cable-to-basket-add-pr-afcfd-ble-to-the-shopping-basket--chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../reports/test-results/add-cable-to-basket-add-pr-afcfd-ble-to-the-shopping-basket--chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../reports/test-results/add-cable-to-basket-add-pr-afcfd-ble-to-the-shopping-basket--chromium/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../test-results/add-cable-to-basket-add-pr-afcfd-ble-to-the-shopping-basket--chromium/test-failed-1.png]]
+
+[[ATTACHMENT|../test-results/add-cable-to-basket-add-pr-afcfd-ble-to-the-shopping-basket--chromium/video.webm]]
+
+[[ATTACHMENT|../test-results/add-cable-to-basket-add-pr-afcfd-ble-to-the-shopping-basket--chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="add-cable-to-basket.spec.ts" timestamp="2025-09-16T10:58:33.675Z" hostname="firefox" tests="1" failures="1" skipped="0" time="30.486" errors="0">
+<testcase name="add product to basket › should add product (cable) to the shopping basket." classname="add-cable-to-basket.spec.ts" time="30.486">
+<failure message="add-cable-to-basket.spec.ts:31:7 should add product (cable) to the shopping basket." type="FAILURE">
+<![CDATA[  [firefox] › add-cable-to-basket.spec.ts:31:7 › add product to basket › should add product (cable) to the shopping basket. 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for locator('.cg-plugButton__subheadline').filter({ hasText: 'cable beginning' })
+        - locator resolved to <span class="cg-plugButton__subheadline">cable beginning</span>
+      - attempting click action
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <div class="theme-fx spicy-consent-wrapper js-spicy-ask">…</div> intercepts pointer events
+        - retrying click action
+        - waiting 20ms
+        - waiting for element to be visible, enabled and stable
+        - element is visible, enabled and stable
+        - scrolling into view if needed
+        - done scrolling
+        - <div class="spicy-consent-bar">…</div> from <div class="theme-fx spicy-consent-wrapper js-spicy-ask">…</div> subtree intercepts pointer events
+      2 × retrying click action
+          - waiting 100ms
+          - waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <div class="theme-fx spicy-consent-wrapper js-spicy-ask">…</div> intercepts pointer events
+      13 × retrying click action
+           - waiting 500ms
+           - waiting for element to be visible, enabled and stable
+           - element is visible, enabled and stable
+           - scrolling into view if needed
+           - done scrolling
+           - <div class="theme-fx spicy-consent-wrapper js-spicy-ask">…</div> intercepts pointer events
+         - retrying click action
+           - waiting 500ms
+           - waiting for element to be visible, enabled and stable
+           - element is visible, enabled and stable
+           - scrolling into view if needed
+           - done scrolling
+           - <div class="spicy-consent-bar">…</div> from <div class="theme-fx spicy-consent-wrapper js-spicy-ask">…</div> subtree intercepts pointer events
+         - retrying click action
+           - waiting 500ms
+           - waiting for element to be visible, enabled and stable
+           - element is visible, enabled and stable
+           - scrolling into view if needed
+           - done scrolling
+           - <div class="theme-fx spicy-consent-wrapper js-spicy-ask">…</div> intercepts pointer events
+         - retrying click action
+           - waiting 500ms
+           - waiting for element to be visible, enabled and stable
+           - element is visible, enabled and stable
+           - scrolling into view if needed
+           - done scrolling
+           - <div class="theme-fx spicy-consent-wrapper js-spicy-ask">…</div> intercepts pointer events
+      - retrying click action
+        - waiting 500ms
+        - waiting for element to be visible, enabled and stable
+        - element is visible, enabled and stable
+        - scrolling into view if needed
+        - done scrolling
+        - <div class="theme-fx spicy-consent-wrapper js-spicy-ask">…</div> intercepts pointer events
+      - retrying click action
+        - waiting 500ms
+        - waiting for element to be visible, enabled and stable
+        - element is visible, enabled and stable
+        - scrolling into view if needed
+        - done scrolling
+        - <div class="spicy-consent-bar">…</div> from <div class="theme-fx spicy-consent-wrapper js-spicy-ask">…</div> subtree intercepts pointer events
+      - retrying click action
+        - waiting 500ms
+        - waiting for element to be visible, enabled and stable
+
+
+       at ../pages/CableGuyPage.ts:24
+
+      22 |
+      23 |   async selectCableBeginning() {
+    > 24 |     await this.cableBeginingButton.click();
+         |                                    ^
+      25 |   }
+      26 |
+      27 |   async selectCableEnd() {
+        at CableGuyPage.selectCableBeginning (/Users/sumantkumar/projectworkspace/thomann-ui-automation/pages/CableGuyPage.ts:24:36)
+        at CableGuyPage.selectRandomCableFromBeginningSection (/Users/sumantkumar/projectworkspace/thomann-ui-automation/pages/CableGuyPage.ts:40:16)
+        at /Users/sumantkumar/projectworkspace/thomann-ui-automation/tests/add-cable-to-basket.spec.ts:33:24
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../reports/test-results/add-cable-to-basket-add-pr-afcfd-ble-to-the-shopping-basket--firefox/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../reports/test-results/add-cable-to-basket-add-pr-afcfd-ble-to-the-shopping-basket--firefox/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../reports/test-results/add-cable-to-basket-add-pr-afcfd-ble-to-the-shopping-basket--firefox/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../test-results/add-cable-to-basket-add-pr-afcfd-ble-to-the-shopping-basket--firefox/test-failed-1.png]]
+
+[[ATTACHMENT|../test-results/add-cable-to-basket-add-pr-afcfd-ble-to-the-shopping-basket--firefox/video.webm]]
+
+[[ATTACHMENT|../test-results/add-cable-to-basket-add-pr-afcfd-ble-to-the-shopping-basket--firefox/error-context.md]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="add-cable-to-basket.spec.ts" timestamp="2025-09-16T10:58:33.675Z" hostname="webkit" tests="1" failures="1" skipped="0" time="30.273" errors="0">
+<testcase name="add product to basket › should add product (cable) to the shopping basket." classname="add-cable-to-basket.spec.ts" time="30.273">
+<failure message="add-cable-to-basket.spec.ts:31:7 should add product (cable) to the shopping basket." type="FAILURE">
+<![CDATA[  [webkit] › add-cable-to-basket.spec.ts:31:7 › add product to basket › should add product (cable) to the shopping basket. 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for locator('.cg-plugButton__subheadline').filter({ hasText: 'cable beginning' })
+        - locator resolved to <span class="cg-plugButton__subheadline">cable beginning</span>
+      - attempting click action
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <div class="theme-fx spicy-consent-wrapper js-spicy-ask">…</div> intercepts pointer events
+        - retrying click action
+        - waiting 20ms
+        - waiting for element to be visible, enabled and stable
+        - element is visible, enabled and stable
+        - scrolling into view if needed
+        - done scrolling
+        - <div class="spicy-consent-bar">…</div> from <div class="theme-fx spicy-consent-wrapper js-spicy-ask">…</div> subtree intercepts pointer events
+      2 × retrying click action
+          - waiting 100ms
+          - waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <div class="theme-fx spicy-consent-wrapper js-spicy-ask">…</div> intercepts pointer events
+      13 × retrying click action
+           - waiting 500ms
+           - waiting for element to be visible, enabled and stable
+           - element is visible, enabled and stable
+           - scrolling into view if needed
+           - done scrolling
+           - <div class="theme-fx spicy-consent-wrapper js-spicy-ask">…</div> intercepts pointer events
+         - retrying click action
+           - waiting 500ms
+           - waiting for element to be visible, enabled and stable
+           - element is visible, enabled and stable
+           - scrolling into view if needed
+           - done scrolling
+           - <div class="spicy-consent-bar">…</div> from <div class="theme-fx spicy-consent-wrapper js-spicy-ask">…</div> subtree intercepts pointer events
+         - retrying click action
+           - waiting 500ms
+           - waiting for element to be visible, enabled and stable
+           - element is visible, enabled and stable
+           - scrolling into view if needed
+           - done scrolling
+           - <div class="theme-fx spicy-consent-wrapper js-spicy-ask">…</div> intercepts pointer events
+         - retrying click action
+           - waiting 500ms
+           - waiting for element to be visible, enabled and stable
+           - element is visible, enabled and stable
+           - scrolling into view if needed
+           - done scrolling
+           - <div class="theme-fx spicy-consent-wrapper js-spicy-ask">…</div> intercepts pointer events
+      - retrying click action
+        - waiting 500ms
+        - waiting for element to be visible, enabled and stable
+        - element is visible, enabled and stable
+        - scrolling into view if needed
+        - done scrolling
+        - <div class="theme-fx spicy-consent-wrapper js-spicy-ask">…</div> intercepts pointer events
+      - retrying click action
+        - waiting 500ms
+        - waiting for element to be visible, enabled and stable
+        - element is visible, enabled and stable
+        - scrolling into view if needed
+        - done scrolling
+        - <div class="spicy-consent-bar">…</div> from <div class="theme-fx spicy-consent-wrapper js-spicy-ask">…</div> subtree intercepts pointer events
+      - retrying click action
+        - waiting 500ms
+
+
+       at ../pages/CableGuyPage.ts:24
+
+      22 |
+      23 |   async selectCableBeginning() {
+    > 24 |     await this.cableBeginingButton.click();
+         |                                    ^
+      25 |   }
+      26 |
+      27 |   async selectCableEnd() {
+        at CableGuyPage.selectCableBeginning (/Users/sumantkumar/projectworkspace/thomann-ui-automation/pages/CableGuyPage.ts:24:36)
+        at CableGuyPage.selectRandomCableFromBeginningSection (/Users/sumantkumar/projectworkspace/thomann-ui-automation/pages/CableGuyPage.ts:40:16)
+        at /Users/sumantkumar/projectworkspace/thomann-ui-automation/tests/add-cable-to-basket.spec.ts:33:24
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../reports/test-results/add-cable-to-basket-add-pr-afcfd-ble-to-the-shopping-basket--webkit/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../reports/test-results/add-cable-to-basket-add-pr-afcfd-ble-to-the-shopping-basket--webkit/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../reports/test-results/add-cable-to-basket-add-pr-afcfd-ble-to-the-shopping-basket--webkit/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../test-results/add-cable-to-basket-add-pr-afcfd-ble-to-the-shopping-basket--webkit/test-failed-1.png]]
+
+[[ATTACHMENT|../test-results/add-cable-to-basket-add-pr-afcfd-ble-to-the-shopping-basket--webkit/video.webm]]
+
+[[ATTACHMENT|../test-results/add-cable-to-basket-add-pr-afcfd-ble-to-the-shopping-basket--webkit/error-context.md]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+</testsuites>
