@@ -1,0 +1,23 @@
+{
+  "name": "thomann-ui-automation",
+  "version": "1.0.0",
+  "description": "Thomann UI automation with playwright and typescript",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test",
+    "test-headed": "npx playwright test --headed",
+    "test-cromium": "npx playwright test --project=chromium",
+    "test-debug": "npx playwright test --debug",
+    "report": "npx playwright show-report"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.55.0",
+    "@types/node": "^24.5.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5"
+  }
+}
