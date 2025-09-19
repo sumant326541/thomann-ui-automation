@@ -1,33 +1,31 @@
-import { type Page, type Locator } from '@playwright/test';
-import { extractNumber, getTotalProducts as getTotalProductsCount, normalizeProductTitleToMatchUrl } from '../utils/testHelper';
+import { Page, Locator } from '@playwright/test';
+import { getListingProductCount as getTotalFilteredCableCount } from '../utils/testHelper';
+import { BasePage } from './BasePage';
 
-export class CableGuyPage {
-  readonly page: Page;
+export class CableGuyPage extends BasePage {
   readonly cableBeginningButton: Locator;
   readonly cableEndButton: Locator;
   readonly cableTypes: Locator;
   readonly cables: Locator;
-  readonly manufacturers: Locator;
-  readonly manufacturerProductCountTextMessage: Locator;
+  readonly cableManufacturers: Locator;
   readonly loader: Locator;
-  readonly productsDisplayedOnPage: Locator;
-  readonly nextButton: Locator;
+  readonly filteredCables: Locator;
+  readonly rightArrowButton: Locator;
 
   constructor(page: Page) {
-    this.page = page;
-    this.cableBeginningButton = page.locator('.cg-plugButton__subheadline', { hasText: 'cable beginning' });
-    this.cableEndButton = page.locator('.cg-plugButton__subheadline', { hasText: 'cable end' });
+    super(page);
+    this.cableBeginningButton = page.getByRole("button", { name: "cable beginning" });
+    this.cableEndButton = page.getByRole("button", { name: "cable end" });
     this.cableTypes = page.locator('.cg-plugmodal__category__item');
-    this.cables = page.locator('.cg-plugItem__wrapper');
-    this.manufacturers = page.locator('.cg-brands__item');
+    this.cables = page.locator('div.cg-plugItem');
+    this.cableManufacturers = page.locator('div.cg-brands div.item');
     this.loader = page.locator('img[src*="loader-black.gif"]');
-    this.manufacturerProductCountTextMessage = page.locator('.cg-count');
-    this.productsDisplayedOnPage = page.locator('.product__details');
-    this.nextButton = page.locator('.cg-icons__arrow--right');
+    this.filteredCables = page.locator('.product__title');
+    this.rightArrowButton = page.locator('.cg-icons__arrow--right');
   }
 
-  async navigate(): Promise<void> {
-    await this.page.goto('https://www.thomann.de/intl/cableguy.html');
+  async gotoCableGuyPage(): Promise<void> {
+    await this.goto(process.env.CABLE_GUY_URL!);
   }
 
   async selectCableBeginning(): Promise<void> {
@@ -39,21 +37,35 @@ export class CableGuyPage {
   }
 
   async selectRandomCableType(): Promise<void> {
-    const count = await this.cableTypes.count();
-    if (count > 0) await this.cableTypes.nth(Math.floor(Math.random() * count)).click();
+    const totalCableTypeCount: number = await this.cableTypes.count();
+    const randomCableTypeIndex: number = Math.floor(Math.random() * totalCableTypeCount);
+    await this.cableTypes.nth(randomCableTypeIndex).click();
   }
 
   async selectRandomCable(): Promise<void> {
-    const count = await this.cables.count();
-    if (count > 0) await this.cables.nth(Math.floor(Math.random() * count)).click();
+    const totalCableCount: number = await this.cables.count();
+    const randomCableIndex: number = Math.floor(Math.random() * totalCableCount);
+    await this.cables.nth(randomCableIndex).click();
   }
 
-  async selectRandomManufacturer(): Promise<void> {
-    await this.manufacturers.first().waitFor({ state: 'visible', timeout: 5000 });
-    const count = await this.manufacturers.count();
-    if (count > 0) await this.manufacturers.nth(Math.floor(Math.random() * count)).click();
+  /**
+   * Selects a random cable manufacturer
+   * @returns {Promise<number>} The expected number of cables after selecting a random manufacturer
+   */
+  async selectRandomManufacturerAndGetExpectedCableNumber(): Promise<number> {
+    const totalCableManufacturerCount: number = await this.cableManufacturers.count();
+    const randomCableManufracturerIndex: number = Math.floor(Math.random() * totalCableManufacturerCount);
+    await this.cableManufacturers.nth(randomCableManufracturerIndex).click();
+    await this.waitForLoaderToDisappear();
+    const numberUnderCableManufacturerLogo: string = await this.cableManufacturers.nth(randomCableManufracturerIndex).innerText();
+    return Number(numberUnderCableManufacturerLogo);
   }
 
+  /**
+   * Selects a random cable type and a random cable from the beginning section
+   * 
+   * @returns {Promise<void>} Nothing to return
+   */
   async selectRandomCableFromBeginningSection(): Promise<void> {
     await this.selectCableBeginning();
     await this.selectRandomCableType();
@@ -61,6 +73,11 @@ export class CableGuyPage {
     await this.waitForLoaderToDisappear();
   }
 
+  /**
+   * Selects a random cable type and a random cable from the end section
+   * 
+   * @returns {Promise<void>} Nothing to return
+   */
   async selectRandomCableFromEndSection(): Promise<void> {
     await this.selectCableEnd();
     await this.selectRandomCableType();
@@ -68,32 +85,24 @@ export class CableGuyPage {
     await this.waitForLoaderToDisappear();
   }
 
-  async getManufacturerProductsCount(): Promise<number> {
-    await this.waitForLoaderToDisappear();
-    const text = await this.manufacturerProductCountTextMessage.textContent();
-    return extractNumber(text ?? '0');
+  async getFilteredCableCount(): Promise<number> {
+    return await getTotalFilteredCableCount(this.page, this.filteredCables, this.rightArrowButton);
   }
 
-  async getTotalProductsDisplayedCount(): Promise<number> {
-    return await getTotalProductsCount(this.page, this.productsDisplayedOnPage, this.nextButton);
-  }
-
-  async getFirstProductTitle(): Promise<string> {
-    const productTitle = await this.productsDisplayedOnPage.first().locator('.product__title').textContent();
-    return productTitle?.trim() ?? '';
-  }
-
-  async getNormalizedProductTitleToMatchUrl(): Promise<string> {
-    const productTitle = await this.getFirstProductTitle();
-    return normalizeProductTitleToMatchUrl(productTitle);
-  }
-
-  async selectFirstProduct(): Promise<void> {
-    await this.productsDisplayedOnPage.first().click();
+  /**
+   * Selects a random cable from the filtered list
+   * 
+   * @returns {Promise<string>} The title of the selected cable
+   */
+  async selectRandomCableFromListAndGetTitle(): Promise<string> {
+    const cablesOnPage: number = await this.filteredCables.count();
+    const randomProductIndex: number = Math.floor(Math.random() * cablesOnPage);
+    const productTitle: string = this.filteredCables.nth(randomProductIndex).textContent() as unknown as string;;
+    await this.filteredCables.nth(randomProductIndex).click();
+    return productTitle;
   }
 
   async waitForLoaderToDisappear(): Promise<void> {
-
     await this.loader.waitFor({ state: 'visible', timeout: 5000 });
     await this.loader.waitFor({ state: 'hidden', timeout: 5000 });
   }

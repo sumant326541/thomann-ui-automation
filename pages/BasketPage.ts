@@ -1,16 +1,15 @@
-import { type Page, type Locator } from "@playwright/test";
+import { Page, Locator } from "@playwright/test";
+import { BasePage } from "./BasePage";
 
-export class BasketPage {
-    readonly page: Page;
+export class BasketPage extends BasePage {
     readonly basketPopup: Locator;
 
     constructor(page: Page) {
-        this.page = page;
+        super(page);
         this.basketPopup = page.locator('.fx-notification__content');
     }
 
     async getBasketPopup() {
         return this.basketPopup;
     }
-
 }
