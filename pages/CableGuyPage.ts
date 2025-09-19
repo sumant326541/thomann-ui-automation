@@ -103,7 +103,11 @@ export class CableGuyPage extends BasePage {
   }
 
   async waitForLoaderToDisappear(): Promise<void> {
-    await this.loader.waitFor({ state: 'visible', timeout: 5000 });
+    try {
+        await this.loader.waitFor({ state: 'visible', timeout: 2000 });
+    } catch {
+        // ignore timeout error
+    }
     await this.loader.waitFor({ state: 'hidden', timeout: 5000 });
-  }
+}
 }
