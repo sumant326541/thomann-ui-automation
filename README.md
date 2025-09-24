@@ -28,15 +28,15 @@ Automated UI testing for Thomann CableGuy using **🎭 Playwright**, **📘 Type
 
 ## ⚙️ Prerequisites
 
-- **Node.js** (recommended: v20.x)  
-- **npm** (recommended: v10.x)  
+- **Node.js** (recommended: v20.x)
+- **npm** (recommended: v10.x)
 
 Check versions with:
 
 ```sh
 🖥️ node -v
 🖥️ npm -v
-````
+```
 
 ---
 
@@ -68,41 +68,42 @@ npm run test
 ### 👀 Run tests in headed mode
 
 ```sh
-npm run test-headed
+npm run test:headed
 ```
 
 ### 🌐 Run tests only on Chromium
 
 ```sh
-npm run test-chromium
+npm run test:chromium
 ```
 
 ---
 
 ## 📊 Reports
 
-* **HTML reports** are generated in the `playwright-report` folder (configurable in `playwright.config.ts`).
-* Open the report:
+- **HTML reports** are generated in the `playwright-report` folder (configurable in `playwright.config.ts`).
+- Open the report:
 
 ```sh
 npm run report
 ```
+
 - Test execution screenshot
-![alt text](report.png)
+  ![alt text](report.png)
 
 ---
 
 ## 📸 Screenshots & 🎥 Recordings
 
-* Screenshots and recordings are automatically attached to the **HTML report** for **failed steps**.
+- Screenshots and recordings are automatically attached to the **HTML report** for **failed steps**.
 
 ---
 
 ## 🤖 CI with GitHub Actions
 
-* Workflow defined in `.github/workflows/push.yml`.
-* Test cases are triggered on **pull requests** to the `main` branch.
-* Check workflow reports [here](https://github.com/sumant326541/thomann-ui-automation/actions/).
+- Workflow defined in `.github/workflows/push.yml`.
+- Test cases are triggered on **pull requests** to the `main` branch.
+- Check workflow reports [here](https://github.com/sumant326541/thomann-ui-automation/actions/).
 
 ---
 

@@ -10,7 +10,6 @@ type TestFixtures = {
 };
 
 export const test = base.extend<TestFixtures>({
-
   //CableGuyPage Fixture
   cableGuyPage: async ({ page }, use) => {
     const cableGuyPage = new CableGuyPage(page);
